@@ -1,0 +1,55 @@
+{
+    "name": "SMSusers",
+    "fields": [
+        {
+            "fieldName": "points",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "senderName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isActive",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "sMPP",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isTrust",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "notes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isMMS",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isHTTP",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "adminID",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190910155719",
+    "entityTableName": "sm_susers",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

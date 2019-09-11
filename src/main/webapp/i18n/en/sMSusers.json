@@ -1,0 +1,31 @@
+{
+  "smsPortalApp": {
+    "sMSusers": {
+      "home": {
+        "title": "SM Susers",
+        "createLabel": "Create a new SM Susers",
+        "createOrEditLabel": "Create or edit a SM Susers",
+        "notFound": "No SM Susers found"
+      },
+      "created": "A new SM Susers is created with identifier {{ param }}",
+      "updated": "A SM Susers is updated with identifier {{ param }}",
+      "deleted": "A SM Susers is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete SM Susers {{ id }}?"
+      },
+      "detail": {
+        "title": "SM Susers"
+      },
+      "points": "Points",
+      "senderName": "Sender Name",
+      "isActive": "Is Active",
+      "sMPP": "S MPP",
+      "isTrust": "Is Trust",
+      "notes": "Notes",
+      "phone": "Phone",
+      "isMMS": "Is MMS",
+      "isHTTP": "Is HTTP",
+      "adminID": "Admin ID"
+    }
+  }
+}

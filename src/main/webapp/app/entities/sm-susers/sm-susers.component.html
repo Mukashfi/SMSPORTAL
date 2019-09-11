@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="smsPortalApp.sMSusers.home.title">SM Susers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sm-susers" [routerLink]="['/sm-susers/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="smsPortalApp.sMSusers.home.createLabel">
+            Create a new SM Susers
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sMSusers?.length === 0">
+        <span jhiTranslate="smsPortalApp.sMSusers.home.notFound">No sMSusers found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sMSusers?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.points">Points</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.senderName">Sender Name</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.isActive">Is Active</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.sMPP">S MPP</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.isTrust">Is Trust</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.notes">Notes</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.phone">Phone</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.isMMS">Is MMS</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.isHTTP">Is HTTP</span></th>
+            <th><span jhiTranslate="smsPortalApp.sMSusers.adminID">Admin ID</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sMSusers of sMSusers ;trackBy: trackId">
+                <td><a [routerLink]="['/sm-susers', sMSusers.id, 'view' ]">{{sMSusers.id}}</a></td>
+                <td>{{sMSusers.points}}</td>
+                <td>{{sMSusers.senderName}}</td>
+                <td>{{sMSusers.isActive}}</td>
+                <td>{{sMSusers.sMPP}}</td>
+                <td>{{sMSusers.isTrust}}</td>
+                <td>{{sMSusers.notes}}</td>
+                <td>{{sMSusers.phone}}</td>
+                <td>{{sMSusers.isMMS}}</td>
+                <td>{{sMSusers.isHTTP}}</td>
+                <td>{{sMSusers.adminID}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sm-susers', sMSusers.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sm-susers', sMSusers.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sm-susers', { outlets: { popup: sMSusers.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

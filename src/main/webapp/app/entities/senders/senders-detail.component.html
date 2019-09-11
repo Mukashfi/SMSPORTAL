@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="senders">
+            <h2><span jhiTranslate="smsPortalApp.senders.detail.title">Senders</span> {{senders.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="smsPortalApp.senders.senderId">Sender Id</span></dt>
+                <dd>
+                    <span>{{senders.senderId}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.senders.userId">User Id</span></dt>
+                <dd>
+                    <span>{{senders.userId}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.senders.sender">Sender</span></dt>
+                <dd>
+                    <span>{{senders.sender}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/senders', senders.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

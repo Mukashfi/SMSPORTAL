@@ -1,0 +1,118 @@
+package com.smsbulk.app.web.rest;
+
+import com.smsbulk.app.domain.Senders;
+import com.smsbulk.app.repository.SendersRepository;
+import com.smsbulk.app.web.rest.errors.BadRequestAlertException;
+
+import io.github.jhipster.web.util.HeaderUtil;
+import io.github.jhipster.web.util.ResponseUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import java.util.List;
+import java.util.Optional;
+
+/**
+ * REST controller for managing {@link com.smsbulk.app.domain.Senders}.
+ */
+@RestController
+@RequestMapping("/api")
+public class SendersResource {
+
+    private final Logger log = LoggerFactory.getLogger(SendersResource.class);
+
+    private static final String ENTITY_NAME = "senders";
+
+    @Value("${jhipster.clientApp.name}")
+    private String applicationName;
+
+    private final SendersRepository sendersRepository;
+
+    public SendersResource(SendersRepository sendersRepository) {
+        this.sendersRepository = sendersRepository;
+    }
+
+    /**
+     * {@code POST  /senders} : Create a new senders.
+     *
+     * @param senders the senders to create.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new senders, or with status {@code 400 (Bad Request)} if the senders has already an ID.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping("/senders")
+    public ResponseEntity<Senders> createSenders(@RequestBody Senders senders) throws URISyntaxException {
+        log.debug("REST request to save Senders : {}", senders);
+        if (senders.getId() != null) {
+            throw new BadRequestAlertException("A new senders cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        Senders result = sendersRepository.save(senders);
+        return ResponseEntity.created(new URI("/api/senders/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * {@code PUT  /senders} : Updates an existing senders.
+     *
+     * @param senders the senders to update.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated senders,
+     * or with status {@code 400 (Bad Request)} if the senders is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the senders couldn't be updated.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PutMapping("/senders")
+    public ResponseEntity<Senders> updateSenders(@RequestBody Senders senders) throws URISyntaxException {
+        log.debug("REST request to update Senders : {}", senders);
+        if (senders.getId() == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        Senders result = sendersRepository.save(senders);
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, senders.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * {@code GET  /senders} : get all the senders.
+     *
+
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of senders in body.
+     */
+    @GetMapping("/senders")
+    public List<Senders> getAllSenders() {
+        log.debug("REST request to get all Senders");
+        return sendersRepository.findAll();
+    }
+
+    /**
+     * {@code GET  /senders/:id} : get the "id" senders.
+     *
+     * @param id the id of the senders to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the senders, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/senders/{id}")
+    public ResponseEntity<Senders> getSenders(@PathVariable Long id) {
+        log.debug("REST request to get Senders : {}", id);
+        Optional<Senders> senders = sendersRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(senders);
+    }
+
+    /**
+     * {@code DELETE  /senders/:id} : delete the "id" senders.
+     *
+     * @param id the id of the senders to delete.
+     * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
+     */
+    @DeleteMapping("/senders/{id}")
+    public ResponseEntity<Void> deleteSenders(@PathVariable Long id) {
+        log.debug("REST request to delete Senders : {}", id);
+        sendersRepository.deleteById(id);
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+}

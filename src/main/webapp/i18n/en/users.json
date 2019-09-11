@@ -1,0 +1,31 @@
+{
+  "smsPortalApp": {
+    "users": {
+      "home": {
+        "title": "Users",
+        "createLabel": "Create a new Users",
+        "createOrEditLabel": "Create or edit a Users",
+        "notFound": "No Users found"
+      },
+      "created": "A new Users is created with identifier {{ param }}",
+      "updated": "A Users is updated with identifier {{ param }}",
+      "deleted": "A Users is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Users {{ id }}?"
+      },
+      "detail": {
+        "title": "Users"
+      },
+      "points": "Points",
+      "senderName": "Sender Name",
+      "isActive": "Is Active",
+      "sMPP": "S MPP",
+      "isTrust": "Is Trust",
+      "notes": "Notes",
+      "phone": "Phone",
+      "isMMS": "Is MMS",
+      "isHTTP": "Is HTTP",
+      "adminID": "Admin ID"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="smsPortalApp.senders.home.title">Senders</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-senders" [routerLink]="['/senders/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="smsPortalApp.senders.home.createLabel">
+            Create a new Senders
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="senders?.length === 0">
+        <span jhiTranslate="smsPortalApp.senders.home.notFound">No senders found</span>
+    </div>
+    <div class="table-responsive" *ngIf="senders?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="smsPortalApp.senders.senderId">Sender Id</span></th>
+            <th><span jhiTranslate="smsPortalApp.senders.userId">User Id</span></th>
+            <th><span jhiTranslate="smsPortalApp.senders.sender">Sender</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let senders of senders ;trackBy: trackId">
+                <td><a [routerLink]="['/senders', senders.id, 'view' ]">{{senders.id}}</a></td>
+                <td>{{senders.senderId}}</td>
+                <td>{{senders.userId}}</td>
+                <td>{{senders.sender}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/senders', senders.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/senders', senders.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/senders', { outlets: { popup: senders.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

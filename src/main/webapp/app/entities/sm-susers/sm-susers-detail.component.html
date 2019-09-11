@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sMSusers">
+            <h2><span jhiTranslate="smsPortalApp.sMSusers.detail.title">SM Susers</span> {{sMSusers.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.points">Points</span></dt>
+                <dd>
+                    <span>{{sMSusers.points}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.senderName">Sender Name</span></dt>
+                <dd>
+                    <span>{{sMSusers.senderName}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{sMSusers.isActive}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.sMPP">S MPP</span></dt>
+                <dd>
+                    <span>{{sMSusers.sMPP}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.isTrust">Is Trust</span></dt>
+                <dd>
+                    <span>{{sMSusers.isTrust}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.notes">Notes</span></dt>
+                <dd>
+                    <span>{{sMSusers.notes}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.phone">Phone</span></dt>
+                <dd>
+                    <span>{{sMSusers.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.isMMS">Is MMS</span></dt>
+                <dd>
+                    <span>{{sMSusers.isMMS}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.isHTTP">Is HTTP</span></dt>
+                <dd>
+                    <span>{{sMSusers.isHTTP}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.sMSusers.adminID">Admin ID</span></dt>
+                <dd>
+                    <span>{{sMSusers.adminID}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sm-susers', sMSusers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

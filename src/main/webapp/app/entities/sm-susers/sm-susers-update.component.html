@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sm-susers-heading" jhiTranslate="smsPortalApp.sMSusers.home.createOrEditLabel">Create or edit a SM Susers</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.points" for="field_points">Points</label>
+                    <input type="number" class="form-control" name="points" id="field_points"
+                           formControlName="points"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.senderName" for="field_senderName">Sender Name</label>
+                    <input type="text" class="form-control" name="senderName" id="field_senderName"
+                           formControlName="senderName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.isActive" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                           formControlName="isActive"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.sMPP" for="field_sMPP">S MPP</label>
+                    <input type="checkbox" class="form-control" name="sMPP" id="field_sMPP"
+                           formControlName="sMPP"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.isTrust" for="field_isTrust">Is Trust</label>
+                    <input type="checkbox" class="form-control" name="isTrust" id="field_isTrust"
+                           formControlName="isTrust"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.notes" for="field_notes">Notes</label>
+                    <input type="text" class="form-control" name="notes" id="field_notes"
+                           formControlName="notes"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                           formControlName="phone"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.isMMS" for="field_isMMS">Is MMS</label>
+                    <input type="checkbox" class="form-control" name="isMMS" id="field_isMMS"
+                           formControlName="isMMS"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.isHTTP" for="field_isHTTP">Is HTTP</label>
+                    <input type="checkbox" class="form-control" name="isHTTP" id="field_isHTTP"
+                           formControlName="isHTTP"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.sMSusers.adminID" for="field_adminID">Admin ID</label>
+                    <input type="number" class="form-control" name="adminID" id="field_adminID"
+                           formControlName="adminID"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="smsPortalApp.users.home.title">Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-users" [routerLink]="['/users/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="smsPortalApp.users.home.createLabel">
+            Create a new Users
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="users?.length === 0">
+        <span jhiTranslate="smsPortalApp.users.home.notFound">No users found</span>
+    </div>
+    <div class="table-responsive" *ngIf="users?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.points">Points</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.senderName">Sender Name</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.isActive">Is Active</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.sMPP">S MPP</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.isTrust">Is Trust</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.notes">Notes</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.phone">Phone</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.isMMS">Is MMS</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.isHTTP">Is HTTP</span></th>
+            <th><span jhiTranslate="smsPortalApp.users.adminID">Admin ID</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let users of users ;trackBy: trackId">
+                <td><a [routerLink]="['/users', users.id, 'view' ]">{{users.id}}</a></td>
+                <td>{{users.points}}</td>
+                <td>{{users.senderName}}</td>
+                <td>{{users.isActive}}</td>
+                <td>{{users.sMPP}}</td>
+                <td>{{users.isTrust}}</td>
+                <td>{{users.notes}}</td>
+                <td>{{users.phone}}</td>
+                <td>{{users.isMMS}}</td>
+                <td>{{users.isHTTP}}</td>
+                <td>{{users.adminID}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/users', users.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/users', users.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/users', { outlets: { popup: users.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
