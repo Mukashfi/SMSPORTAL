@@ -76,7 +76,7 @@ public class SubUsersResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final SubUsersResource subUsersResource = new SubUsersResource(subUsersRepository);
+        final SubUsersResource subUsersResource = new SubUsersResource(subUsersRepository, null);
         this.restSubUsersMockMvc = MockMvcBuilders.standaloneSetup(subUsersResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

@@ -105,6 +105,7 @@ public class PackagesResource {
     public String getID() throws JSONException {
         System.out.println("GetID   DDDDDDDDDDDDDDDDDDDDDD");
         JSONObject jObject = new JSONObject();
+        int data = 1 ;
         jObject.put("data", (data + ""));
        return jObject.toString();
     }
