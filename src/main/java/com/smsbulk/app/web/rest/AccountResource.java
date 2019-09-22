@@ -1,6 +1,5 @@
 package com.smsbulk.app.web.rest;
 
-
 import com.smsbulk.app.domain.User;
 import com.smsbulk.app.repository.UserRepository;
 import com.smsbulk.app.security.SecurityUtils;
@@ -15,6 +14,8 @@ import com.smsbulk.app.web.rest.vm.ManagedUserVM;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,9 +55,12 @@ public class AccountResource {
      * {@code POST  /register} : register the user.
      *
      * @param managedUserVM the managed user View Model.
-     * @throws InvalidPasswordException {@code 400 (Bad Request)} if the password is incorrect.
-     * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
-     * @throws LoginAlreadyUsedException {@code 400 (Bad Request)} if the login is already used.
+     * @throws InvalidPasswordException  {@code 400 (Bad Request)} if the password
+     *                                   is incorrect.
+     * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is
+     *                                   already used.
+     * @throws LoginAlreadyUsedException {@code 400 (Bad Request)} if the login is
+     *                                   already used.
      */
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
@@ -72,7 +76,8 @@ public class AccountResource {
      * {@code GET  /activate} : activate the registered user.
      *
      * @param key the activation key.
-     * @throws RuntimeException {@code 500 (Internal Server Error)} if the user couldn't be activated.
+     * @throws RuntimeException {@code 500 (Internal Server Error)} if the user
+     *                          couldn't be activated.
      */
     @GetMapping("/activate")
     public void activateAccount(@RequestParam(value = "key") String key) {
@@ -82,6 +87,14 @@ public class AccountResource {
         }
     }
 
+    @GetMapping(path = "/account/getID")
+    public String getID() throws JSONException {
+        System.out.println("GetID   DDDDDDDDDDDDDDDDDDDDDD");
+        long data = (long) 1 ;
+        JSONObject jObject = new JSONObject();
+        jObject.put("data", (data + ""));
+       return jObject.toString();
+    }
     /**
      * {@code GET  /authenticate} : check if the user is authenticated, and return its login.
      *

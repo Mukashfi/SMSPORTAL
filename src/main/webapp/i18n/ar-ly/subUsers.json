@@ -1,0 +1,26 @@
+{
+  "smsPortalApp": {
+    "subUsers": {
+      "home": {
+        "title": "Sub Users",
+        "createLabel": "Create a new Sub Users",
+        "createOrEditLabel": "Create or edit a Sub Users",
+        "notFound": "No Sub Users found"
+      },
+      "created": "A new Sub Users is created with identifier {{ param }}",
+      "updated": "A Sub Users is updated with identifier {{ param }}",
+      "deleted": "A Sub Users is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sub Users {{ id }}?"
+      },
+      "detail": {
+        "title": "Sub Users"
+      },
+      "username": "Username",
+      "parentUserId": "Parent User Id",
+      "isAuthrized": "Is Authrized",
+      "subUserId": "Sub User Id",
+      "userId": "User Id"
+    }
+  }
+}

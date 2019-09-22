@@ -37,8 +37,8 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:sqlserver://localhost:1433;database=SMSPortal
-    username: SA
-    password: yourStrong(!)Password
+    username: SMSPortal
+    password: smsportal
     hikari:
       poolName: Hikari
       auto-commit: false

@@ -3,6 +3,7 @@ package com.smsbulk.app.web.rest;
 import com.smsbulk.app.SmsPortalApp;
 import com.smsbulk.app.domain.SMSusers;
 import com.smsbulk.app.repository.SMSusersRepository;
+import com.smsbulk.app.repository.UserRepository;
 import com.smsbulk.app.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -67,7 +68,7 @@ public class SMSusersResourceIT {
 
     @Autowired
     private SMSusersRepository sMSusersRepository;
-
+   
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
@@ -86,11 +87,13 @@ public class SMSusersResourceIT {
     private MockMvc restSMSusersMockMvc;
 
     private SMSusers sMSusers;
+    @Autowired
+    private  UserRepository userRepository;
 
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final SMSusersResource sMSusersResource = new SMSusersResource(sMSusersRepository);
+        final SMSusersResource sMSusersResource = new SMSusersResource(sMSusersRepository,userRepository);
         this.restSMSusersMockMvc = MockMvcBuilders.standaloneSetup(sMSusersResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)

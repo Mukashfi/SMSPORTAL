@@ -46,7 +46,7 @@
     "changelogDate": "20190910155719",
     "entityTableName": "sm_susers",
     "dto": "no",
-    "pagination": "no",
+    "pagination": "pagination",
     "service": "no",
     "jpaMetamodelFiltering": false,
     "fluentMethods": true,

@@ -16,9 +16,9 @@
       "detail": {
         "title": "Senders"
       },
-      "senderId": "Sender Id",
-      "userId": "User Id",
-      "sender": "Sender"
+      "senderId": "Sender ID",
+      "userId": "User ID",
+      "sender": "Sender Name"
     }
   }
 }

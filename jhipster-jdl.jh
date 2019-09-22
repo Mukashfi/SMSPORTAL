@@ -1,19 +1,8 @@
-entity SMSusers{
- Points Long,
- SenderName String,
- IsActive Boolean,
- SMPP Boolean,
- IsTrust Boolean,
- Notes String,
- Phone String,
- IsMMS Boolean,
- IsHTTP Boolean,
- AdminID Long
-
-}
-entity Senders {
-    SenderId Long,
-    UserId Long,
-    Sender String
-}
- 
+ entity SubUsers{
+     Username String,
+     ParentUserId Long,
+     IsAuthrized Boolean,
+     SubUserId Long,
+     UserId Long
+ }
+ paginate SubUsers with pagination

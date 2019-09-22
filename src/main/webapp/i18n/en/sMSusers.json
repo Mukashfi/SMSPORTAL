@@ -2,19 +2,19 @@
   "smsPortalApp": {
     "sMSusers": {
       "home": {
-        "title": "SM Susers",
-        "createLabel": "Create a new SM Susers",
-        "createOrEditLabel": "Create or edit a SM Susers",
-        "notFound": "No SM Susers found"
+        "title": "SMS Users",
+        "createLabel": "Create a new SMS Users",
+        "createOrEditLabel": "Create or edit a SMS Users",
+        "notFound": "No SMS Users found"
       },
-      "created": "A new SM Susers is created with identifier {{ param }}",
-      "updated": "A SM Susers is updated with identifier {{ param }}",
-      "deleted": "A SM Susers is deleted with identifier {{ param }}",
+      "created": "A new SMS Users is created with identifier {{ param }}",
+      "updated": "A SMS Users is updated with identifier {{ param }}",
+      "deleted": "A SMS Users is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete SM Susers {{ id }}?"
+        "question": "Are you sure you want to delete SMS Users {{ id }}?"
       },
       "detail": {
-        "title": "SM Susers"
+        "title": "SMS Users"
       },
       "points": "Points",
       "senderName": "Sender Name",

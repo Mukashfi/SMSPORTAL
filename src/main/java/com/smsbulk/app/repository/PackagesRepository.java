@@ -1,15 +1,15 @@
 package com.smsbulk.app.repository;
 
-import com.smsbulk.app.domain.Users;
+import com.smsbulk.app.domain.Packages;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 
 /**
- * Spring Data  repository for the Users entity.
+ * Spring Data  repository for the Packages entity.
  */
 @SuppressWarnings("unused")
 @Repository
-public interface UsersRepository extends JpaRepository<Users, Long> {
+public interface PackagesRepository extends JpaRepository<Packages, Long> {
 
 }

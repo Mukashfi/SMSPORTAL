@@ -2,9 +2,9 @@
   "smsPortalApp": {
     "sMSusers": {
       "home": {
-        "title": "SM Susers",
-        "createLabel": "Create a new SM Susers",
-        "createOrEditLabel": "Create or edit a SM Susers",
+        "title": "المستحدمون",
+        "createLabel": "اضافة عنصر جديد",
+        "createOrEditLabel": "Create or edit a SMS users",
         "notFound": "No SM Susers found"
       },
       "created": "A new SM Susers is created with identifier {{ param }}",
@@ -14,15 +14,15 @@
         "question": "Are you sure you want to delete SM Susers {{ id }}?"
       },
       "detail": {
-        "title": "SM Susers"
+        "title": "SMS Users"
       },
       "points": "Points",
-      "senderName": "Sender Name",
+      "senderName": "اسم المرسل",
       "isActive": "Is Active",
       "sMPP": "S MPP",
       "isTrust": "Is Trust",
-      "notes": "Notes",
-      "phone": "Phone",
+      "notes": "ملاحظات",
+      "phone": "الهاتف",
       "isMMS": "Is MMS",
       "isHTTP": "Is HTTP",
       "adminID": "Admin ID"

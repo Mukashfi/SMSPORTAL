@@ -15,6 +15,14 @@ import { RouterModule } from '@angular/router';
       {
         path: 'senders',
         loadChildren: () => import('./senders/senders.module').then(m => m.SmsPortalSendersModule)
+      },
+      {
+        path: 'packages',
+        loadChildren: () => import('./packages/packages.module').then(m => m.SmsPortalPackagesModule)
+      },
+      {
+        path: 'sub-users',
+        loadChildren: () => import('./sub-users/sub-users.module').then(m => m.SmsPortalSubUsersModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

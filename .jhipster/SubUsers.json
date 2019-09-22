@@ -1,0 +1,35 @@
+{
+    "name": "SubUsers",
+    "fields": [
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "isAuthrized",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "subUserId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "userId",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190911125616",
+    "entityTableName": "sub_users",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

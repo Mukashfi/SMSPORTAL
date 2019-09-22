@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="subUsers">
+            <h2><span jhiTranslate="smsPortalApp.subUsers.detail.title">Sub Users</span> {{subUsers.username}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="col-md jh-entity-details">
+                <dt><span jhiTranslate="smsPortalApp.subUsers.username">Username</span></dt>
+                <dd>
+                    <span>{{subUsers.username}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.subUsers.parentUserId">Parent User Id</span></dt>
+                <dd>
+                    <span>{{subUsers.parentUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.subUsers.isAuthrized">Is Authrized</span></dt>
+                <dd>
+                    <span class="badge badge-pill badge-success">{{subUsers.isAuthrized}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.subUsers.subUserId">Sub User Id</span></dt>
+                <dd>
+                    <span>{{subUsers.subUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.subUsers.userId">User Id</span></dt>
+                <dd>
+                    <span>{{subUsers.userId}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sub-users', subUsers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

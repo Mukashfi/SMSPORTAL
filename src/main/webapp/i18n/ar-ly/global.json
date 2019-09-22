@@ -10,6 +10,8 @@
         "users": "Users",
         "smSusers": "SM Susers",
         "senders": "Senders",
+        "packages": "Packages",
+        "subUsers": "Sub Users",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -84,7 +86,7 @@
       }
     },
     "field": {
-      "id": "ID"
+      "id": "رقم التعريف"
     },
     "ribbon": {
       "dev": "تطوير"

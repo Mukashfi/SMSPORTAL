@@ -2,8 +2,8 @@
   "smsPortalApp": {
     "senders": {
       "home": {
-        "title": "Senders",
-        "createLabel": "Create a new Senders",
+        "title": "الراسلون",
+        "createLabel": "اضافة راسل جديد",
         "createOrEditLabel": "Create or edit a Senders",
         "notFound": "No Senders found"
       },
@@ -14,11 +14,11 @@
         "question": "Are you sure you want to delete Senders {{ id }}?"
       },
       "detail": {
-        "title": "Senders"
+        "title": "الراسلون"
       },
-      "senderId": "Sender Id",
-      "userId": "User Id",
-      "sender": "Sender"
+      "senderId": "رقم الراسل",
+      "userId": "المستخدم",
+      "sender": "راسل"
     }
   }
 }
