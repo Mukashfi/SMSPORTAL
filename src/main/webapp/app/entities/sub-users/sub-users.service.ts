@@ -32,7 +32,11 @@ export class SubUsersService {
   }
   getpackages(): Observable<any> {
     console.log('Inside  ++++++++++++++++++++++');
-    return this.http.get(SERVER_API_URL + 'api/packages', { observe: 'response' });
+    return this.http.get(SERVER_API_URL + 'api/packages/getpoints', { observe: 'response' });
+  }
+  getSenders(): Observable<any> {
+    console.log('Inside  ++++++++++++++++++++++');
+    return this.http.get(SERVER_API_URL + 'api/senders/getsenders', { observe: 'response' });
   }
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);

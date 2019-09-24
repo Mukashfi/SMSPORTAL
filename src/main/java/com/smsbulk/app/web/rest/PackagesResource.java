@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -104,9 +104,14 @@ public class PackagesResource {
     @GetMapping("/packages/getpoints")
     public String getID() throws JSONException {
         System.out.println("GetID   DDDDDDDDDDDDDDDDDDDDDD");
+        List<Packages> packages = packagesRepository.findAll();
+        List<Long> list = new ArrayList<>();
+        for (Packages packagess : packages){
+            System.out.println(packagess.getPoints());
+            list.add(packagess.getPoints());
+        }
         JSONObject jObject = new JSONObject();
-        int data = 1 ;
-        jObject.put("data", (data + ""));
+        jObject.put("data", (list ));
        return jObject.toString();
     }
     /**

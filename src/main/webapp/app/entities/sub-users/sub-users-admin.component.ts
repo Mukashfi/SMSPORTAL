@@ -15,6 +15,7 @@ import { SubUsersService } from './sub-users.service';
 export class SubUsersAdminComponent implements OnInit {
   isSaving: boolean;
   status_values: any;
+  senders: any;
   editForm = this.fb.group({
     id: [],
     points: [],
@@ -44,12 +45,8 @@ export class SubUsersAdminComponent implements OnInit {
 
   ngOnInit() {
     this.isSaving = false;
-    this.status_values = ['44', '46', '47'];
-    this.subUsersService.getpackages().subscribe(({ packages }) => {
-      packages.forEach(element => {
-        console.log(element.points);
-      });
-    });
+    this.subUsersService.getSenders().subscribe((res: HttpResponse<any>) => (this.senders = JSON.parse(res.body.data)));
+    this.subUsersService.getpackages().subscribe((res: HttpResponse<any>) => (this.status_values = JSON.parse(res.body.data)));
     this.activatedRoute.data.subscribe(({ subUsers }) => {
       this.updateForm(subUsers);
     });
@@ -80,7 +77,9 @@ export class SubUsersAdminComponent implements OnInit {
   previousState() {
     window.history.back();
   }
-
+  onChangeEvent(ev) {
+    console.log(ev.target.value);
+  }
   save() {
     this.isSaving = true;
     const sMSusers = this.createFromForm();

@@ -1,7 +1,10 @@
 package com.smsbulk.app.web.rest;
 
 import com.smsbulk.app.domain.Senders;
+import com.smsbulk.app.domain.User;
 import com.smsbulk.app.repository.SendersRepository;
+import com.smsbulk.app.repository.UserRepository;
+import com.smsbulk.app.security.SecurityUtils;
 import com.smsbulk.app.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -10,6 +13,8 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
@@ -20,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,9 +44,11 @@ public class SendersResource {
     private String applicationName;
 
     private final SendersRepository sendersRepository;
+    private final UserRepository userRepository;
 
-    public SendersResource(SendersRepository sendersRepository) {
+    public SendersResource(SendersRepository sendersRepository,UserRepository userRepository) {
         this.sendersRepository = sendersRepository;
+        this.userRepository = userRepository;
     }
 
     /**
@@ -111,6 +118,22 @@ public class SendersResource {
         log.debug("REST request to get Senders : {}", id);
         Optional<Senders> senders = sendersRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(senders);
+    }
+    @GetMapping("/senders/getsenders")
+    public String getID() throws JSONException {
+        System.out.println("GetID   DDDDDDDDDDDDDDDDDDDDDD");
+        final Optional<String> login = SecurityUtils.getCurrentUserLogin();
+        Optional<User> user = userRepository.findOneByLogin(login.get());
+        System.out.println("Current working ID " +  user.get().getId());
+        List<Senders> packages = sendersRepository.findByUserId(user.get().getId());
+        List<String> list = new ArrayList<>();
+        for (Senders packagess : packages){
+            System.out.println(packagess.getSender());
+            list.add(("\"" + packagess.getSender()) +"\"");
+        }
+        JSONObject jObject = new JSONObject();
+        jObject.put("data", (list ));
+       return jObject.toString();
     }
 
     /**
