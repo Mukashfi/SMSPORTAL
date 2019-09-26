@@ -80,6 +80,9 @@ export class SubUsersAdminComponent implements OnInit {
   onChangeEvent(ev) {
     console.log(ev.target.value);
   }
+  onEvent(ev) {
+    console.log(ev.target.value);
+  }
   save() {
     this.isSaving = true;
     const sMSusers = this.createFromForm();

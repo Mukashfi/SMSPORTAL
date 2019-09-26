@@ -9,6 +9,7 @@
         "main": "Entities",
         "users": "Users",
         "smSusers": "SM Susers",
+        "balance": "Check Balance",
         "senders": "Senders",
         "packages": "Packages",
         "subUsers": "Sub Users",
