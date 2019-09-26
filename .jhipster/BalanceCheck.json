@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "user",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subUser",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190926120641",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "balance_check",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

@@ -13,6 +13,7 @@
         "senders": "Senders",
         "packages": "Packages",
         "subUsers": "Sub Users",
+        "balanceCheck": "Balance Check",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,23 @@
+{
+  "smsPortalApp": {
+    "balanceCheck": {
+      "home": {
+        "title": "Balance Checks",
+        "createLabel": "Create a new Balance Check",
+        "createOrEditLabel": "Create or edit a Balance Check",
+        "notFound": "No Balance Checks found"
+      },
+      "created": "A new Balance Check is created with identifier {{ param }}",
+      "updated": "A Balance Check is updated with identifier {{ param }}",
+      "deleted": "A Balance Check is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Balance Check {{ id }}?"
+      },
+      "detail": {
+        "title": "Balance Check"
+      },
+      "user": "User",
+      "subUser": "Sub User"
+    }
+  }
+}
