@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity GroupMembers.
+    -->
+    <changeSet id="20190928150619-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="gourpmem_id"
+                                 baseTableName="group_members"
+                                 constraintName="fk_group_members_gourpmem_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="groups"/>
+
+    </changeSet>
+</databaseChangeLog>

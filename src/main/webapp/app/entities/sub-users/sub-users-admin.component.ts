@@ -55,17 +55,6 @@ export class SubUsersAdminComponent implements OnInit {
   updateForm(subUsers: ISubUsers) {
     this.editForm.patchValue({
       id: subUsers.id,
-      //  id: this.id,
-      // points: adminUsers.points,
-      // senderName: adminUsers.senderName,
-      // isActive: adminUsers.isActive,
-      // sMPP: adminUsers.sMPP,
-      // isTrust: adminUsers.isTrust,
-      // notes: adminUsers.notes,
-      // phone: adminUsers.phone,
-      // isMMS: adminUsers.isMMS,
-      // isHTTP: adminUsers.isHTTP,
-      // adminID: subUsers.adminID,
       username: subUsers.username,
       parentUserId: subUsers.parentUserId,
       isAuthrized: subUsers.isAuthrized,

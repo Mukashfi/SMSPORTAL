@@ -27,6 +27,14 @@ import { RouterModule } from '@angular/router';
       {
         path: 'balance-check',
         loadChildren: () => import('./balance-check/balance-check.module').then(m => m.SmsPortalBalanceCheckModule)
+      },
+      {
+        path: 'groups',
+        loadChildren: () => import('./groups/groups.module').then(m => m.SmsPortalGroupsModule)
+      },
+      {
+        path: 'group-members',
+        loadChildren: () => import('./group-members/group-members.module').then(m => m.SmsPortalGroupMembersModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

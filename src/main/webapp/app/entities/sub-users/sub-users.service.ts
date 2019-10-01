@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
 import { ISubUsers } from 'app/shared/model/sub-users.model';
+import { ISMSusers } from 'app/shared/model/sm-susers.model';
 
 type EntityResponseType = HttpResponse<ISubUsers>;
 type EntityArrayResponseType = HttpResponse<ISubUsers[]>;
@@ -12,11 +13,14 @@ type EntityArrayResponseType = HttpResponse<ISubUsers[]>;
 @Injectable({ providedIn: 'root' })
 export class SubUsersService {
   public resourceUrl = SERVER_API_URL + 'api/sub-users';
-
+  public resourcesurl = SERVER_API_URL + 'api/sm-susers';
   constructor(protected http: HttpClient) {}
 
   create(subUsers: ISubUsers): Observable<EntityResponseType> {
     return this.http.post<ISubUsers>(this.resourceUrl, subUsers, { observe: 'response' });
+  }
+  createUser(smsUsers: ISMSusers): Observable<EntityResponseType> {
+    return this.http.post<ISMSusers>(this.resourcesurl, smsUsers, { observe: 'response' });
   }
 
   update(subUsers: ISubUsers): Observable<EntityResponseType> {

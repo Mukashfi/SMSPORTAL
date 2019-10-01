@@ -1,6 +1,7 @@
 package com.smsbulk.app.web.rest;
 
 import com.smsbulk.app.domain.SMSusers;
+import com.smsbulk.app.domain.SubUsers;
 import com.smsbulk.app.domain.User;
 import com.smsbulk.app.repository.SMSusersRepository;
 import com.smsbulk.app.repository.UserRepository;
@@ -71,6 +72,7 @@ public class SMSusersResource {
          sMSusers.setAdminID(user.get().getId());
          //
         SMSusers result = sMSusersRepository.save(sMSusers);
+        SubUsers sub = new SubUsers();
         return ResponseEntity.created(new URI("/api/sm-susers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);

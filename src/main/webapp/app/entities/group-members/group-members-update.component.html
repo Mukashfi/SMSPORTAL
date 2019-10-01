@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-group-members-heading" jhiTranslate="smsPortalApp.groupMembers.home.createOrEditLabel">Create or edit a Group Members</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.groupMembers.gourpId" for="field_gourpId">Gourp Id</label>
+                    <input type="number" class="form-control" name="gourpId" id="field_gourpId"
+                           formControlName="gourpId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.groupMembers.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                           formControlName="phone"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.groupMembers.comId" for="field_comId">Com Id</label>
+                    <input type="number" class="form-control" name="comId" id="field_comId"
+                           formControlName="comId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="smsPortalApp.groupMembers.gourpmem" for="field_gourpmem">Gourpmem</label>
+                    <select class="form-control" id="field_gourpmem" name="gourpmem" formControlName="gourpmem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="groupsOption.id === editForm.get('gourpmem').value?.id ? editForm.get('gourpmem').value : groupsOption" *ngFor="let groupsOption of groups; trackBy: trackGroupsById">{{groupsOption.groupId}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

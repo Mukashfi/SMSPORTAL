@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="groupMembers">
+            <h2><span jhiTranslate="smsPortalApp.groupMembers.detail.title">Group Members</span> {{groupMembers.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="smsPortalApp.groupMembers.gourpId">Gourp Id</span></dt>
+                <dd>
+                    <span>{{groupMembers.gourpId}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.groupMembers.phone">Phone</span></dt>
+                <dd>
+                    <span>{{groupMembers.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.groupMembers.comId">Com Id</span></dt>
+                <dd>
+                    <span>{{groupMembers.comId}}</span>
+                </dd>
+                <dt><span jhiTranslate="smsPortalApp.groupMembers.gourpmem">Gourpmem</span></dt>
+                <dd>
+                    <div *ngIf="groupMembers.gourpmem">
+                        <a [routerLink]="['/groups', groupMembers.gourpmem?.id, 'view']">{{groupMembers.gourpmem?.groupId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/group-members', groupMembers.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

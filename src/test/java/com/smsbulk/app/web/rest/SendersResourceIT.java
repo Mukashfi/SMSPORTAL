@@ -65,11 +65,10 @@ public class SendersResourceIT {
     private MockMvc restSendersMockMvc;
 
     private Senders senders;
-
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final SendersResource sendersResource = new SendersResource(sendersRepository);
+        final SendersResource sendersResource = new SendersResource(sendersRepository,null);
         this.restSendersMockMvc = MockMvcBuilders.standaloneSetup(sendersResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
